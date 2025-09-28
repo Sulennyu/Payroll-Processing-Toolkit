@@ -16,6 +16,7 @@ function calculateBasePay (rate,hours) {
  }
 }
 
+
 // Step 4: calculateOvertimePay hoursWorked > 40hrs
 
 function calculateOvertimePay (rate,hours) {
@@ -27,7 +28,7 @@ if (hours > 40) {
 }
 
 
-//Step 5: calculateTaxes (grossPay) 
+//Step 5: calculateTaxes (grossPay) that deducts 15% tax
 
 function calculateTaxes (grossPay) {
     const taxAmount = (grossPay * 0.15)
@@ -35,7 +36,7 @@ function calculateTaxes (grossPay) {
 }
 
 
-//Step 6: ProcessPayroll
+//Step 6: ProcessPayroll (returns an object)
  
 function processPayroll (employee) {
     const {name, hourlyRate, hoursWorked} = employee;
@@ -44,7 +45,7 @@ function processPayroll (employee) {
     const grossPay = basePay + overtimePay;
     const netPay = calculateTaxes(grossPay);
     return {
-        name:name, 
+        name: name, 
         basePay: basePay,
         overtimePay: overtimePay,
         grossPay : grossPay,
