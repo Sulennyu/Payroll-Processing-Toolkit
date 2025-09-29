@@ -39,13 +39,12 @@ function calculateTaxes (grossPay) {
 //Step 6: ProcessPayroll (returns an object)
  
 function processPayroll (employee) {
-    const {name, hourlyRate, hoursWorked} = employee;
-    const basePay = calculateBasePay(hourlyRate,hoursWorked);
-    const overtimePay = calculateOvertimePay(hourlyRate,hoursWorked);
+    const basePay = calculateBasePay(employee.hourlyRate,employee.hoursWorked);
+    const overtimePay = calculateOvertimePay(employee.hourlyRate,employee.hoursWorked);
     const grossPay = basePay + overtimePay;
     const netPay = calculateTaxes(grossPay);
     return {
-        name: name, 
+        name: employee.name, 
         basePay: basePay,
         overtimePay: overtimePay,
         grossPay : grossPay,
